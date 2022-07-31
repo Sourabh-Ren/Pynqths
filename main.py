@@ -4,7 +4,7 @@ import pickle
 app = Flask(__name__)
 
 dbfile = open('db', 'wb')
-pickle.dump([["field1", "field2", "field3"]], dbfile)    
+pickle.dump([], dbfile)    
 dbfile.close()
 
 @app.route('/')
