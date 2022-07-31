@@ -42,24 +42,9 @@ def querydata():
         data = pickle.load(dbfile)
         dbfile.close()
 
-        data.append(res)
-
-        dbfile = open('db', 'wb')
-        pickle.dump(data, dbfile)          
-        dbfile.close()
-
-        return jsonify(data)
-
-    if request.method=="POST":
-        field1 = request.args.get('field1')
-        field2 = request.args.get('field2')
-        field3 = request.args.get('field3')
-
-        res = [field1, field2, field3]
-
-        dbfile = open('db', 'rb')
-        data = pickle.load(dbfile)
-        dbfile.close()
+        if(len(data)==10):
+            data=[]
+        
 
         data.append(res)
 
@@ -68,6 +53,25 @@ def querydata():
         dbfile.close()
 
         return jsonify(data)
+
+    # if request.method=="POST":
+    #     field1 = request.args.get('field1')
+    #     field2 = request.args.get('field2')
+    #     field3 = request.args.get('field3')
+
+    #     res = [field1, field2, field3]
+
+    #     dbfile = open('db', 'rb')
+    #     data = pickle.load(dbfile)
+    #     dbfile.close()
+
+    #     data.append(res)
+
+    #     dbfile = open('db', 'wb')
+    #     pickle.dump(data, dbfile)          
+    #     dbfile.close()
+
+    #     return jsonify(data)
 
 @app.route('/getdata', methods=['GET','POST'])
 def getdata():
