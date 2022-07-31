@@ -9,7 +9,7 @@ dbfile.close()
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return 'Rohit is great!'
 
 # @app.route('/update/<int:sno>', methods=['GET','POST'])
 # def update(sno):
