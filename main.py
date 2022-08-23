@@ -11,23 +11,6 @@ dbfile.close()
 def hello_world():
     return 'pynq Z1!'
 
-# @app.route('/update/<int:sno>', methods=['GET','POST'])
-# def update(sno):
-#     res = {
-#         "num":sno
-#     }
-#     return res
-
-# @app.route('/postsend', methods=['GET','POST'])
-# def postsend():
-#     if request.method=="POST":
-#         email = request.form.get('email')
-#         password = request.form.get('password')
-#         res = {
-#             "email": email,
-#             "password": password
-#         }
-#         return res
 
 @app.route('/querydata', methods=['GET','POST'])
 def querydata():
@@ -42,8 +25,8 @@ def querydata():
         data = pickle.load(dbfile)
         dbfile.close()
 
-        if(len(data)==10):
-            data=[]
+        if(len(data)==20):
+            del data[0:10]
         
 
         data.append(res)
